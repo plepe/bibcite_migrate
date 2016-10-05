@@ -1,0 +1,14 @@
+id: keyword
+label: Keyword
+migration_group: biblio
+source:
+  plugin: keyword
+destination:
+  plugin: entity:bibcite_keyword
+process:
+  name: word
+
+dependencies:
+  enforced:
+    module:
+      - bibcite_migrate

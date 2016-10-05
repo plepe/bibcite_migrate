@@ -19,7 +19,7 @@ class Bibliography extends SqlBase {
    */
   public function query() {
     $query = $this->select('biblio', 'b')
-      ->fields('b', array_keys($this->fields()));
+      ->fields('b');
 
     return $query;
   }

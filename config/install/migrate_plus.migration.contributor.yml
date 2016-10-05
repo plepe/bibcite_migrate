@@ -1,0 +1,17 @@
+id: contributor
+label: Contributor
+migration_group: biblio
+source:
+  plugin: contributor
+destination:
+  plugin: entity:bibcite_contributor
+process:
+  prefix: prefix
+  first_name: firstname
+  last_name: lastname
+  suffix: suffix
+
+dependencies:
+  enforced:
+    module:
+      - bibcite_migrate
