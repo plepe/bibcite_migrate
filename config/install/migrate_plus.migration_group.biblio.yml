@@ -1,0 +1,11 @@
+id: biblio
+label: Biblio
+description: Migrate Biblio data.
+source_type: biblio tables
+shared_configuration:
+  source:
+    key: migrate
+dependencies:
+  enforced:
+    module:
+      - bibcite_migrate
