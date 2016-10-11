@@ -4,6 +4,7 @@ namespace Drupal\bibcite_migrate\Plugin\migrate\source;
 
 
 use Drupal\migrate\Plugin\migrate\source\SqlBase;
+use Drupal\migrate\Row;
 
 /**
  * Source plugin for the Bibliography.
@@ -18,8 +19,12 @@ class Bibliography extends SqlBase {
    * {@inheritdoc}
    */
   public function query() {
-    $query = $this->select('biblio', 'b')
-      ->fields('b');
+    $query = $this->select('biblio', 'b');
+    $query->join('node', 'n', 'b.vid = n.vid');
+    $query->distinct();
+
+    $query->fields('b');
+    $query->fields('n', ['title']);
 
     return $query;
   }
@@ -39,7 +44,7 @@ class Bibliography extends SqlBase {
       'biblio_tertiary_title' => $this->t('Tertiary title'),
       'biblio_edition' => $this->t('Edition'),
       'biblio_publisher' => $this->t('Published'),
-      'biblio_place_published' => $this->t('Place publushed'),
+      'biblio_place_published' => $this->t('Place published'),
       'biblio_year' => $this->t('Year of publication'),
       'biblio_volume' => $this->t('Volume'),
       'biblio_pages' => $this->t('Pages'),
@@ -63,7 +68,7 @@ class Bibliography extends SqlBase {
       'biblio_custom6' => $this->t('Custom 6'),
       'biblio_custom7' => $this->t('Custom 7'),
       'biblio_research_notes' => $this->t('Research notes'),
-      'biblio_number_of_volumes' => $this->t('Number of volumets'),
+      'biblio_number_of_volumes' => $this->t('Number of volumes'),
       'biblio_short_title' => $this->t('Short title'),
       'biblio_alternate_title' => $this->t('Alternate title'),
       'biblio_original_publication' => $this->t('Original publication'),
@@ -81,9 +86,72 @@ class Bibliography extends SqlBase {
       'biblio_refereed' => $this->t('Referred'),
       'biblio_md5' => $this->t('MD5'),
       'biblio_formats' => $this->t('Formats'),
+      'author' => $this->t('Author'),
+      'title' => $this->t('Title'),
+      'keywords' => $this->t('Keywords'),
     ];
 
     return $fields;
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function prepareRow(Row $row) {
+    $nid = $row->getSourceProperty('nid');
+    $vid = $row->getSourceProperty('vid');
+
+    $authors = $this->selectContributors($nid, $vid);
+    $row->setSourceProperty('author', $authors);
+
+    $keywords = $this->selectKeywords($nid, $vid);
+    $row->setSourceProperty('keywords', $keywords);
+
+    return parent::prepareRow($row);
+  }
+
+  /**
+   * Select all contributors related to biblio entry.
+   *
+   * @param string $nid
+   *   Biblio node identifier.
+   * @param string $vid
+   *   Biblio node revision identifier.
+   *
+   * @return array
+   *   Array of contributors data.
+   */
+  protected function selectContributors($nid, $vid) {
+    $query = $this->select('biblio_contributor', 'bc')
+      ->fields('bc', ['cid', 'auth_type', 'auth_category']);
+
+    $query->condition('bc.nid', $nid);
+    $query->condition('bc.vid', $vid);
+    $result = $query->execute();
+
+    return $result->fetchAll();
+  }
+
+  /**
+   * Select all keywords related to biblio entry.
+   *
+   * @param string $nid
+   *   Biblio node identifier.
+   * @param string $vid
+   *   Biblio node revision identifier.
+   *
+   * @return array
+   *   Array of keywords data.
+   */
+  protected function selectKeywords($nid, $vid) {
+    $query = $this->select('biblio_keyword', 'bk')
+      ->fields('bk', ['kid']);
+
+    $query->condition('bk.nid', $nid);
+    $query->condition('bk.vid', $vid);
+    $result = $query->execute();
+
+    return $result->fetchAll();
   }
 
   /**

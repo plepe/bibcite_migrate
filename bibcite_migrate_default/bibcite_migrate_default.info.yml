@@ -1,0 +1,7 @@
+name: 'Bibliography & Citation - Migrate default'
+type: module
+description: Default configuration for Biblio migration
+core: 8.x
+package: 'Bibliography & Citation - Migrate'
+dependencies:
+  - bibcite_migrate

@@ -8,4 +8,4 @@ shared_configuration:
 dependencies:
   enforced:
     module:
-      - bibcite_migrate
+      - bibcite_migrate_default

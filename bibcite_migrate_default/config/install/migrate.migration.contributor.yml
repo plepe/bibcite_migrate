@@ -1,8 +1,8 @@
-id: contributor
+id: bibcite_contributor
 label: Contributor
 migration_group: biblio
 source:
-  plugin: contributor
+  plugin: bibcite_contributor
 destination:
   plugin: entity:bibcite_contributor
 process:
@@ -14,4 +14,4 @@ process:
 dependencies:
   enforced:
     module:
-      - bibcite_migrate
+      - bibcite_migrate_default

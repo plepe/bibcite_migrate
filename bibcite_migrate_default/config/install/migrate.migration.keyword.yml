@@ -1,8 +1,8 @@
-id: keyword
+id: bibcite_keyword
 label: Keyword
 migration_group: biblio
 source:
-  plugin: keyword
+  plugin: bibcite_keyword
 destination:
   plugin: entity:bibcite_keyword
 process:
@@ -11,4 +11,4 @@ process:
 dependencies:
   enforced:
     module:
-      - bibcite_migrate
+      - bibcite_migrate_default

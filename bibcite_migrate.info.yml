@@ -2,7 +2,7 @@ name: 'Bibliography & Citation - Migrate'
 type: module
 description: Migrate data from Biblio (D6 and D7)
 core: 8.x
-package: Other
+package: 'Bibliography & Citation - Migrate'
 dependencies:
   - migrate
   - migrate_plus
