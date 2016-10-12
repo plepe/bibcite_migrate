@@ -10,7 +10,7 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  * Source plugin for the contributors.
  *
  * @MigrateSource(
- *   id = "keyword"
+ *   id = "bibcite_keyword"
  * )
  */
 class Keyword extends SqlBase {

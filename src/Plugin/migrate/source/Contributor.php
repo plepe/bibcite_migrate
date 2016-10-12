@@ -9,7 +9,7 @@ use Drupal\migrate\Plugin\migrate\source\SqlBase;
  * Source plugin for the contributors.
  *
  * @MigrateSource(
- *   id = "contributor"
+ *   id = "bibcite_contributor"
  * )
  */
 class Contributor extends SqlBase {

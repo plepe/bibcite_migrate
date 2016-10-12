@@ -4,6 +4,5 @@ description: Migrate data from Biblio (D6 and D7)
 core: 8.x
 package: 'Bibliography & Citation - Migrate'
 dependencies:
-  - migrate
   - migrate_plus
   - bibcite_entity

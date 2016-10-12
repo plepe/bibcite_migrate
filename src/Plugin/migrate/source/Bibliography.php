@@ -10,7 +10,7 @@ use Drupal\migrate\Row;
  * Source plugin for the Bibliography.
  *
  * @MigrateSource(
- *   id = "bibliography"
+ *   id = "bibcite_bibliography"
  * )
  */
 class Bibliography extends SqlBase {
