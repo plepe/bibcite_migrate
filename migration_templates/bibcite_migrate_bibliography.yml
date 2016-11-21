@@ -1,6 +1,5 @@
-id: bibcite_bibliography
+id: bibcite_migrate_bibliography
 label: Bibliogprahy
-migration_group: biblio
 source:
   plugin: bibcite_bibliography
 destination:
@@ -147,9 +146,5 @@ process:
       133: web_service
 migration_dependencies:
   required:
-    - bibcite_contributor
-    - bibcite_keyword
-dependencies:
-  enforced:
-    module:
-      - bibcite_migrate_default
+    - bibcite_migrate_contributor
+    - bibcite_migrate_keyword

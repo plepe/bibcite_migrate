@@ -1,6 +1,5 @@
-id: bibcite_contributor
+id: bibcite_migrate_contributor
 label: Contributor
-migration_group: biblio
 source:
   plugin: bibcite_contributor
 destination:
@@ -10,8 +9,3 @@ process:
   first_name: firstname
   last_name: lastname
   suffix: suffix
-
-dependencies:
-  enforced:
-    module:
-      - bibcite_migrate_default
