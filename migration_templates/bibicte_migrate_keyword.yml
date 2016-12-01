@@ -1,5 +1,8 @@
 id: bibcite_migrate_keyword
 label: Keyword
+migration_tags:
+  - Drupal 6
+  - Drupal 7
 source:
   plugin: bibcite_keyword
 destination:

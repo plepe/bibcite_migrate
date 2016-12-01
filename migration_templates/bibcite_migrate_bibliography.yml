@@ -1,5 +1,8 @@
 id: bibcite_migrate_bibliography
 label: Bibliogprahy
+migration_tags:
+  - Drupal 6
+  - Drupal 7
 source:
   plugin: bibcite_bibliography
 destination:
@@ -63,7 +66,7 @@ process:
     process:
       target_id:
         plugin: migration
-        migration: bibcite_keyword
+        migration: bibcite_migrate_keyword
         source: kid
   author:
     plugin: iterator
@@ -71,7 +74,7 @@ process:
     process:
       target_id:
         plugin: migration
-        migration: bibcite_contributor
+        migration: bibcite_migrate_contributor
         source: cid
       role:
         plugin: static_map
