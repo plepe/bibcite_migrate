@@ -3,16 +3,17 @@
 namespace Drupal\bibcite_migrate\Plugin\migrate\source;
 
 
-use Drupal\migrate\Plugin\migrate\source\SqlBase;
+use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 
 /**
  * Source plugin for the contributors.
  *
  * @MigrateSource(
- *   id = "bibcite_contributor"
+ *   id = "bibcite_contributor",
+ *   source_provider = "biblio"
  * )
  */
-class Contributor extends SqlBase {
+class Contributor extends DrupalSqlBase {
 
   /**
    * {@inheritdoc}
