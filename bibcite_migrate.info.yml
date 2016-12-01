@@ -2,7 +2,8 @@ name: 'Bibliography & Citation - Migrate'
 type: module
 description: Migrate data from Biblio (D6 and D7)
 core: 8.x
-package: 'Bibliography & Citation - Migrate'
+package: 'Bibliography & Citation - Other'
 dependencies:
-  - migrate_plus
+  - migrate
+  - migrate_drupal
   - bibcite_entity
