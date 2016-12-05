@@ -7,14 +7,14 @@ use Drupal\migrate\Row;
 use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
 
 /**
- * Source plugin for the Bibliography.
+ * Source plugin for the Reference.
  *
  * @MigrateSource(
- *   id = "bibcite_bibliography",
+ *   id = "bibcite_reference",
  *   source_provider = "biblio"
  * )
  */
-class Bibliography extends DrupalSqlBase {
+class Reference extends DrupalSqlBase {
 
   /**
    * {@inheritdoc}

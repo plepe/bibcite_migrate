@@ -1,12 +1,12 @@
-id: bibcite_migrate_bibliography
-label: Bibliogprahy
+id: bibcite_migrate_reference
+label: Reference
 migration_tags:
   - Drupal 6
   - Drupal 7
 source:
-  plugin: bibcite_bibliography
+  plugin: bibcite_reference
 destination:
-  plugin: entity:bibliography
+  plugin: entity:bibcite_reference
 process:
   # Adtitional fields:
   # biblio_full_text
