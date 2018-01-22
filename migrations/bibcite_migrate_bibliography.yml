@@ -61,19 +61,19 @@ process:
   bibcite_access_date: biblio_access_date
   bibcite_refereed: biblio_refereed
   keywords:
-    plugin: iterator
+    plugin: sub_process
     source: keywords
     process:
       target_id:
-        plugin: migration
+        plugin: migration_lookup
         migration: bibcite_migrate_keyword
         source: kid
   author:
-    plugin: iterator
+    plugin: sub_process
     source: author
     process:
       target_id:
-        plugin: migration
+        plugin: migration_lookup
         migration: bibcite_migrate_contributor
         source: cid
       role:

@@ -11,7 +11,8 @@ use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
  *
  * @MigrateSource(
  *   id = "bibcite_reference",
- *   source_provider = "biblio"
+ *   source_provider = "biblio",
+ *   source_module = "biblio"
  * )
  */
 class Reference extends DrupalSqlBase {

@@ -9,7 +9,8 @@ use Drupal\migrate_drupal\Plugin\migrate\source\DrupalSqlBase;
  *
  * @MigrateSource(
  *   id = "bibcite_keyword",
- *   source_provider = "biblio"
+ *   source_provider = "biblio",
+ *   source_module = "biblio"
  * )
  */
 class Keyword extends DrupalSqlBase {
