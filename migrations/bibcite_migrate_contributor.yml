@@ -8,7 +8,4 @@ source:
 destination:
   plugin: entity:bibcite_contributor
 process:
-  prefix: prefix
-  first_name: firstname
-  last_name: lastname
-  suffix: suffix
+  name: name
