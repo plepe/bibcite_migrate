@@ -15,7 +15,13 @@ process:
   # biblio_formats
   # biblio_sort_title
   title: title
-  bibcite_year: biblio_year
+  bibcite_year:
+    source: biblio_year
+    plugin: static_map
+    map:
+      9999: NULL
+      9998: NULL
+    bypass: TRUE
   bibcite_volume: biblio_volume
   bibcite_pages: biblio_pages
   bibcite_number: biblio_number
