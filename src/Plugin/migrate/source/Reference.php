@@ -125,7 +125,8 @@ class Reference extends DrupalSqlBase {
    */
   protected function selectContributors($nid, $vid) {
     $query = $this->select('biblio_contributor', 'bc')
-      ->fields('bc', ['cid', 'auth_type', 'auth_category']);
+      ->fields('bc', ['cid', 'auth_type', 'auth_category'])
+      ->orderBy('bc.rank', 'ASC');
 
     $query->condition('bc.nid', $nid);
     $query->condition('bc.vid', $vid);
