@@ -132,7 +132,16 @@ class Reference extends DrupalSqlBase {
     $query->condition('bc.vid', $vid);
     $result = $query->execute();
 
-    return $result->fetchAll();
+    $ret = array();
+    while ($elem = $result->fetch()) {
+      if ($elem['auth_type'] == 0) {
+        $elem['auth_type'] = 1;
+      }
+
+      $ret[] = $elem;
+    }
+
+    return $ret;
   }
 
   /**
