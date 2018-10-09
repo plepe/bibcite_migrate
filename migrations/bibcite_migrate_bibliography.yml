@@ -153,6 +153,7 @@ process:
       107: web_article
       134: web_project_page
       133: web_service
+      1000: master_thesis
 migration_dependencies:
   required:
     - bibcite_migrate_contributor
